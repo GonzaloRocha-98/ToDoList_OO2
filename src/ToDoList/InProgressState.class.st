@@ -7,7 +7,7 @@ Class {
 { #category : #initialization }
 InProgressState >> finish [
 	toDoList state: (FinishedState new: toDoList).
-	toDoList endTime: Date now.
+	toDoList endTime: DateAndTime now.
 ]
 
 { #category : #accessing }

@@ -40,5 +40,5 @@ ToDoListState >> togglePause [
 
 { #category : #initialization }
 ToDoListState >> workedTime [
-	self subclassResponsibility
+	^self subclassResponsibility
 ]

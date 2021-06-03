@@ -10,6 +10,6 @@ FinishedState >> addComment: aComment [
 ]
 
 { #category : #initialization }
-FinishedState >> workedTime [ 
-^ (toDoList startTime ) - (toDoList endTime )
+FinishedState >> workedTime [
+	^ toDoList endTime - toDoList startTime
 ]

@@ -44,7 +44,8 @@ ToDoList >> finish [
 { #category : #initialization }
 ToDoList >> initializeWithName: aName [
 	name := aName.
-	comments := OrderedCollection new
+	comments := OrderedCollection new.
+	self state: (PendingState new: self)
 ]
 
 { #category : #initialization }
@@ -74,5 +75,5 @@ ToDoList >> togglePause [
 
 { #category : #accessing }
 ToDoList >> workedTime [
-	state workedTime
+	^state workedTime
 ]
