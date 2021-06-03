@@ -5,13 +5,13 @@ Class {
 }
 
 { #category : #accessing }
-PendingState >> start [
-	toDoList state: (InProgressState new: toDoList).
-	toDoList startTime: DateAndTime now.
+PendingState >> start:aToDoList [
+	aToDoList state: (InProgressState new).
+	aToDoList startTime: DateAndTime now
 ]
 
 { #category : #initialization }
-PendingState >> workedTime [
-	self error:'el objeto ToDoItem aun se encuentra en estado pendiente.'
-
+PendingState >> workedTime: aToDoList [
+	self
+		error: 'El objeto ToDoItem aun se encuentra en estado pendiente.'
 ]

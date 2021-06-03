@@ -5,7 +5,6 @@ Class {
 		'name',
 		'state',
 		'startTime',
-		'endTime',
 		'comments'
 	],
 	#category : #ToDoList
@@ -18,7 +17,7 @@ ToDoList class >> name: aName [
 
 { #category : #accessing }
 ToDoList >> addComment: aComment [
-	state addComment:aComment 
+	state addComment: aComment for: self
 ]
 
 { #category : #adding }
@@ -27,30 +26,25 @@ ToDoList >> addCommentInToDoList: aComment [
 ]
 
 { #category : #accessing }
-ToDoList >> endTime [
-	^ endTime
+ToDoList >> comments [
+ ^comments
 ]
 
 { #category : #accessing }
-ToDoList >> endTime: anObject [
-	endTime := anObject
-]
-
-{ #category : #accessing }
-ToDoList >> finish [ 
-	state finish 
+ToDoList >> finish [
+	state finish: self
 ]
 
 { #category : #initialization }
 ToDoList >> initializeWithName: aName [
 	name := aName.
 	comments := OrderedCollection new.
-	self state: (PendingState new: self)
+	self state: (PendingState new)
 ]
 
 { #category : #initialization }
-ToDoList >> start [ 
-	state start
+ToDoList >> start [
+	state start: self
 ]
 
 { #category : #accessing }
@@ -64,16 +58,21 @@ startTime := aTime.
 ]
 
 { #category : #accessing }
+ToDoList >> state [ 
+^state
+]
+
+{ #category : #accessing }
 ToDoList >> state: aState [
 state:= aState
 ]
 
 { #category : #accessing }
 ToDoList >> togglePause [
-	state togglePause
+	state togglePause:self
 ]
 
 { #category : #accessing }
 ToDoList >> workedTime [
-	^state workedTime
+	^ state workedTime: self
 ]

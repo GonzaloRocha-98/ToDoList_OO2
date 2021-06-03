@@ -7,38 +7,27 @@ Class {
 	#category : #ToDoList
 }
 
-{ #category : #'instance creation' }
-ToDoListState class >> new:aToDoList [
-^self new initializeWithToDoList: aToDoList 
+{ #category : #initialization }
+ToDoListState >> addComment: aComment for:aToDoList [
+	aToDoList addCommentInToDoList: aComment
 ]
 
 { #category : #initialization }
-ToDoListState >> addComment: aComment [
-	toDoList addCommentInToDoList: aComment
-]
-
-{ #category : #initialization }
-ToDoListState >> finish [
-]
-
-{ #category : #initialization }
-ToDoListState >> initializeWithToDoList: aToDoList [
-	toDoList := aToDoList 
+ToDoListState >> finish: aToDoList [
+	
 ]
 
 { #category : #accessing }
-ToDoListState >> start [
-
+ToDoListState >> start: aToDoLit [
 ]
 
 { #category : #accessing }
-ToDoListState >> togglePause [
-	self error:'el objeto ToDoItem no se encuentra en pause o in-progress'
-
-
+ToDoListState >> togglePause: aToDoList [
+	self
+		error: 'El objeto ToDoItem no se encuentra en pause o in-progress'
 ]
 
 { #category : #initialization }
-ToDoListState >> workedTime [
-	^self subclassResponsibility
+ToDoListState >> workedTime: aToDoList [
+	^ self subclassResponsibility
 ]

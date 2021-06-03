@@ -1,15 +1,23 @@
 Class {
 	#name : #FinishedState,
 	#superclass : #ToDoListState,
+	#instVars : [
+		'endTime'
+	],
 	#category : #ToDoList
 }
 
 { #category : #initialization }
-FinishedState >> addComment: aComment [
-
+FinishedState >> addComment: aComment for: aToDoList [
+	
 ]
 
 { #category : #initialization }
-FinishedState >> workedTime [
-	^ toDoList endTime - toDoList startTime
+FinishedState >> initialize [
+endTime:= DateAndTime now.
+]
+
+{ #category : #initialization }
+FinishedState >> workedTime: aToDoList [
+	^ endTime - aToDoList startTime
 ]
